@@ -1,0 +1,7 @@
+$cursor: auto, default, pointer, wait, text, move, help, not-allowed, none,
+  context-menu, progress;
+@each $val in $cursor {
+  .cursor-#{$val} {
+    cursor: $val;
+  }
+}

@@ -1,0 +1,249 @@
+@use "sass:math";
+
+$utilities: (
+  // class padding
+  "padding":
+    (
+      "prefix": "p",
+      "values": (
+        "0": 0,
+        "04": $base-padding * 0.4,
+        "08": $base-padding * 0.8,
+        "1": $base-padding,
+        "12": $base-padding * 1.2,
+        "16": $base-padding * 1.6,
+        "2": $base-padding * 2,
+        "24": $base-padding * 2.4,
+        "3": $base-padding * 3,
+        "32": $base-padding * 3.2,
+        "4": $base-padding * 4,
+        "5": $base-padding * 5,
+      ),
+    ),
+  "padding-left": (
+    "prefix": "pl",
+    "values": (
+      "0": 0,
+      "04": $base-padding * 0.4,
+      "08": $base-padding * 0.8,
+      "1": $base-padding,
+      "12": $base-padding * 1.2,
+      "16": $base-padding * 1.6,
+      "2": $base-padding * 2,
+      "24": $base-padding * 2.4,
+      "3": $base-padding * 3,
+      "32": $base-padding * 3.2,
+      "4": $base-padding * 4,
+      "5": $base-padding * 5,
+    ),
+  ),
+  "padding-right": (
+    "prefix": "pr",
+    "values": (
+      "0": 0,
+      "04": $base-padding * 0.4,
+      "08": $base-padding * 0.8,
+      "1": $base-padding,
+      "12": $base-padding * 1.2,
+      "16": $base-padding * 1.6,
+      "2": $base-padding * 2,
+      "24": $base-padding * 2.4,
+      "3": $base-padding * 3,
+      "32": $base-padding * 3.2,
+      "4": $base-padding * 4,
+      "5": $base-padding * 5,
+    ),
+  ),
+  "padding-bottom": (
+    "prefix": "pb",
+    "values": (
+      "0": 0,
+      "04": $base-padding * 0.4,
+      "08": $base-padding * 0.8,
+      "1": $base-padding,
+      "12": $base-padding * 1.2,
+      "16": $base-padding * 1.6,
+      "2": $base-padding * 2,
+      "24": $base-padding * 2.4,
+      "3": $base-padding * 3,
+      "32": $base-padding * 3.2,
+      "4": $base-padding * 4,
+      "5": $base-padding * 5,
+    ),
+  ),
+  "padding-top": (
+    "prefix": "pt",
+    "values": (
+      "0": 0,
+      "04": $base-padding * 0.4,
+      "08": $base-padding * 0.8,
+      "1": $base-padding,
+      "12": $base-padding * 1.2,
+      "16": $base-padding * 1.6,
+      "2": $base-padding * 2,
+      "24": $base-padding * 2.4,
+      "3": $base-padding * 3,
+      "32": $base-padding * 3.2,
+      "4": $base-padding * 4,
+      "5": $base-padding * 5,
+    ),
+  ),
+  // class margin
+  "margin":
+    (
+      "prefix": "m",
+      "values": (
+        "0": 0,
+        "08": $base-margin * 0.8,
+        "09": $base-margin * 0.9,
+        "1": $base-margin,
+        "16": $base-margin * 1.6,
+        "2": $base-margin * 2,
+        "24": $base-margin * 2.4,
+        "3": $base-margin * 3,
+        "32": $base-margin * 3.2,
+        "4": $base-margin * 4,
+        "5": $base-margin * 5,
+      ),
+    ),
+  "margin-top": (
+    "prefix": "mt",
+    "values": (
+      "0": 0,
+      "08": $base-margin * 0.8,
+      "09": $base-margin * 0.9,
+      "1": $base-margin,
+      "16": $base-margin * 1.6,
+      "2": $base-margin * 2,
+      "24": $base-margin * 2.4,
+      "3": $base-margin * 3,
+      "32": $base-margin * 3.2,
+      "4": $base-margin * 4,
+      "5": $base-margin * 5,
+    ),
+  ),
+  "margin-bottom": (
+    "prefix": "mb",
+    "values": (
+      "0": 0,
+      "04": $base-margin * 0.4,
+      "08": $base-margin * 0.8,
+      "09": $base-margin * 0.9,
+      "1": $base-margin,
+      "16": $base-margin * 1.6,
+      "2": $base-margin * 2,
+      "24": $base-margin * 2.4,
+      "3": $base-margin * 3,
+      "32": $base-margin * 3.2,
+      "4": $base-margin * 4,
+      "5": $base-margin * 5,
+    ),
+  ),
+  "margin-left": (
+    "prefix": "ml",
+    "values": (
+      "0": 0,
+      "08": $base-margin * 0.8,
+      "09": $base-margin * 0.9,
+      "1": $base-margin,
+      "16": $base-margin * 1.6,
+      "2": $base-margin * 2,
+      "24": $base-margin * 2.4,
+      "3": $base-margin * 3,
+      "32": $base-margin * 3.2,
+      "4": $base-margin * 4,
+      "5": $base-margin * 5,
+    ),
+  ),
+  "margin-right": (
+    "prefix": "mr",
+    "values": (
+      "0": 0,
+      "08": $base-margin * 0.8,
+      "09": $base-margin * 0.9,
+      "1": $base-margin,
+      "16": $base-margin * 1.6,
+      "2": $base-margin * 2,
+      "24": $base-margin * 2.4,
+      "3": $base-margin * 3,
+      "4": $base-margin * 4,
+      "5": $base-margin * 5,
+    ),
+  ),
+  "opacity": (
+    "prefix": "o",
+    "values": (
+      "0": 0,
+      "1": 0.1,
+      "2": 0.2,
+      "3": 0.3,
+      "4": 0.4,
+      "5": 0.5,
+      "6": 0.6,
+      "7": 0.7,
+      "8": 0.8,
+      "9": 0.9,
+      "10": 1,
+    ),
+  ),
+  "border-radius": (
+    "prefix": "br",
+    "values": (
+      "default": $base-border-radius,
+      "none": 0,
+      "xs": math.div($base-border-radius, 4),
+      "sm": math.div($base-border-radius, 2),
+      "lg": $base-border-radius * 2,
+      "full": 50%,
+    ),
+  ),
+  "display": (
+    "prefix": "display",
+    "values": (
+      "none": none,
+      "block": block,
+      "inline": inline,
+      "flex": flex,
+      "grid": grid,
+      "inline-block": inline-block,
+    ),
+  ),
+  "font-size": (
+    "prefix": "font",
+    "values": (
+      "base": $base-font-size,
+      "sm": $font-size-sm,
+      "md": $font-size-md,
+      "lg": $font-size-lg,
+      "xl": $font-size-xl,
+      "xxl": $font-size-xxl,
+    ),
+  ),
+  "font-weight": (
+    "prefix": "font",
+    "values": (
+      "4": $font-weight-4,
+      "5": $font-weight-5,
+      "6": $font-weight-6,
+      "7": $font-weight-7,
+      "8": $font-weight-8,
+      "9": $font-weight-9,
+    ),
+  )
+);
+
+@each $property, $map in $utilities {
+  $prefix: map-get($map, "prefix");
+  $values: map-get($map, "values");
+  @each $k, $v in $values {
+    @if ($k == "default") {
+      .#{$prefix} {
+        #{$property}: $v;
+      }
+    } @else {
+      .#{$prefix}-#{$k} {
+        #{$property}: $v;
+      }
+    }
+  }
+}
