@@ -210,6 +210,11 @@ a {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #d9d9d9;
 }
+
+.h-screen{
+  height: 100vh;
+}
+
 .btn-blue {
   background-color: $blue;
   color: $white;
@@ -217,4 +222,8 @@ a {
 .btn-gray {
   background-color: #edecec;
   color: $black;
+}
+
+.ant-layout .ant-layout-sider{
+  background-color: white ;
 }

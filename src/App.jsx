@@ -1,15 +1,11 @@
-
-
-
+import { Outlet } from "react-router";
 
 function App() {
-
-
   return (
     <>
-      <button className=""></button>
+      <Outlet />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
