@@ -7,16 +7,18 @@ import Sider from "antd/es/layout/Sider";
 import { Content } from "antd/es/layout/layout";
 
 
-
+const contentStyle = {
+  padding: '32px',
+};
 const LayoutMain = () => {
   return (
-    <Layout className="h-screen">
+    <Layout style={{ minHeight: '100vh' }}>
       <HeaderMain />
       <Layout >
-        <Sider className="bg-white">
+        <Sider >
           <SidebarMain />
         </Sider>
-        <Content >
+        <Content style={contentStyle}>
           <Outlet />
         </Content>
       </Layout>

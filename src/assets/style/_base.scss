@@ -131,14 +131,17 @@ h6 {
   outline: none;
   font-weight: inherit;
   font-style: inherit;
+
   &:before,
   &:after {
     box-sizing: border-box;
   }
 }
+
 html {
   font-size: 62%;
 }
+
 body {
   font-size: $font-size-md;
   line-height: 21px;
@@ -165,6 +168,7 @@ li {
 a {
   font-family: $font-family-segoe;
 }
+
 .el-container {
   height: 100%;
 }
@@ -182,18 +186,22 @@ a {
 .h-full {
   height: 100%;
 }
+
 .paper-bg {
   background-color: $white;
   height: 100%;
 }
+
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 .scrollbar-custom {
   overflow: auto;
 }
+
 .scrollbar-custom::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
@@ -211,7 +219,7 @@ a {
   background-color: #d9d9d9;
 }
 
-.h-screen{
+.h-screen {
   height: 100vh;
 }
 
@@ -219,11 +227,18 @@ a {
   background-color: $blue;
   color: $white;
 }
+
 .btn-gray {
   background-color: #edecec;
   color: $black;
 }
 
-.ant-layout .ant-layout-sider{
-  background-color: white ;
+.ant-layout .ant-layout-sider {
+  background-color: white;
+}
+
+.divider {
+  width: 100%;
+  border: none;
+  background-color: #f4f4f4;
 }
