@@ -1,0 +1,24 @@
+nav {
+  ul {
+    li {
+      height: 46px;
+
+      a {
+        color: #999999;
+      }
+
+      .active {
+        height: 100%;
+        width: 100%;
+        background-color: #F6E4F6;
+        border-right: 2px solid $purple;
+        color: $purple;
+      }
+
+      a:hover {
+        color: $purple;
+        line-height: 46px;
+      }
+    }
+  }
+}
