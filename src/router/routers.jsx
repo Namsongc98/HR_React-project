@@ -38,7 +38,7 @@ const routers = [
         ]
       },
       {
-        path: "job_requests",
+        path: "job-requests",
         element: <LayoutJobRequests />,
         children: [
           {

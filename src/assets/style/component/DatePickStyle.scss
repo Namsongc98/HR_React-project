@@ -1,0 +1,50 @@
+.container-date_pick {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .label {
+    display: block;
+    margin-bottom: 9px;
+    margin-top: 8px;
+    font-size: 17px;
+  }
+
+  .ant-picker-outlined {
+    // padding: 8px 12px 9px 12px !important;
+    border: 2px solid #a6a6a6;
+    width: 100%;
+    flex-direction: row-reverse;
+    padding: 0 0 0 0;
+    border-radius: 0;
+
+    .ant-picker-input {
+      padding-left: 12px;
+      input::placeholder{
+        color:rgba(0, 0, 0, 0.6);
+        font-size: 16.5px;
+        font-weight: 400;
+        
+      }
+    }
+
+    .ant-picker-suffix {
+      padding: 10px 15px 10px 15px;
+      background-color: #0078d4;
+
+      .anticon-calendar {
+        color: white;
+        font-size: 20px;
+      }
+    }
+
+    .ant-picker-clear {
+      padding: 10px;
+      .anticon-close-circle {
+        font-size: 24px;
+      }
+
+    }
+  }
+}
