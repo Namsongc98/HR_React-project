@@ -1,5 +1,5 @@
 import { DatePicker } from 'antd';
-import React from 'react'
+import React, { memo } from 'react'
 
 const DatePickComponent = ({ dateDta }) => {
   const { label, onChange, name } = dateDta
@@ -14,4 +14,4 @@ const DatePickComponent = ({ dateDta }) => {
   )
 }
 
-export default DatePickComponent
+export default memo(DatePickComponent) 

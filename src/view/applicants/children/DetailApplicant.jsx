@@ -1,24 +1,25 @@
-import React from 'react'
+import React, { useCallback, useMemo } from 'react'
 import TitleComponent from '../../../components/componentUI/TitleComponent'
 import ButtonComponent from '../../../components/common/ButtonComponent'
 import ProfileApply from '../component/ProfileApply'
+import { useDispatch, useSelector } from 'react-redux'
+import { openDialog } from '../../../stores/features/modal/modalSlice'
+import { btnProp } from '../../../services/commonFuntion'
 
 const DetailApplicant = () => {
+  const modalStore = useSelector((state) => state.modalSlice)
+  const dispatch = useDispatch()
 
-  const btnReject = {
-    label: "Reject",
-    styleBtn: "btn-gray",
-    onClick() {
-      // navigate("/job-requests/create-job-request");
-    }
-  }
-  const btnSchedule1 = {
-    label: "Schedule Round 1",
-    styleBtn: "btn-blue",
-    onClick() {
-      // navigate("/job-requests/create-job-request");
-    }
-  }
+  const handleClickSchedule = useCallback(() => {
+    console.log('handleClickSchedule')
+    dispatch(openDialog({ open: true, title: 'Schedule Round 1', body: 'FormScheduleBody', }))
+  }, [])
+  const handleClickReject = useCallback(() => {
+    console.log('handleClickReject')
+  }, [])
+
+  const btnReject = useMemo(() => btnProp("Reject", "btn-gray", handleClickReject))
+  const btnSchedule1 = useMemo(() => btnProp("Schedule Round 1", "btn-blue", handleClickSchedule))
   return (
     <div>
       <div className="row justify-space-between align-center">

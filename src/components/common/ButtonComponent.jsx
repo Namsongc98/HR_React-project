@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 const ButtonComponent = ({ dataButton }) => {
     const { styleBtn, ...rest } = dataButton
@@ -12,4 +12,4 @@ const ButtonComponent = ({ dataButton }) => {
     )
 }
 
-export default ButtonComponent
+export default memo(ButtonComponent) 

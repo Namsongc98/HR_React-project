@@ -14,7 +14,6 @@ const Applicants = () => {
   const dataStatus = {
     listStatus: LIST_STATUS_APPLICANTS,
     filterData: (itemClick) => {
-      console.log(itemClick)
       const filterData = TABLE_DATA_APPLICANTS.filter((item) => {
         if (itemClick.status === "All")
           return true

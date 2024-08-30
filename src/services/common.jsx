@@ -18,3 +18,4 @@ export const setClassNameColumnsTable = (dataColumns, status, action) => {
     }
   })
 }
+

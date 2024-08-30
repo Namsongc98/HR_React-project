@@ -9,7 +9,7 @@ import { setClassNameColumnsTable } from '../../services/common.jsx'
 import { useNavigate } from 'react-router'
 
 const JobRequests = () => {
-  const [dataCombo, setDataCombo] = useState(LIST_COMBOBOX[0].label)
+  const [dataCombo, setDataCombo] = useState()
   const [tData, setDataTable] = useState(DATA_JOB_REQUEST)
   const navigate = useNavigate();
   setClassNameColumnsTable(COLUMNS_JOB_REQUEST, CONSTANTS_STATUS, CONSTANTS_ACTION)
@@ -21,11 +21,18 @@ const JobRequests = () => {
     }
   }
   const dataCombobox = {
+    placeholder: 'Department',
+    name: 'department',
+    value: dataCombo?.value,
     listDataCombobox: LIST_COMBOBOX,
     defaultValue: dataCombo,
-    onClickDetail(item) {
-      setDataCombo(item.label)
-    },
+    onChange: handleChange,
+  }
+  function handleChange(value, prop) {
+    setDataCombo((prev) => ({
+      ...prev,
+      [prop]: value
+    }))
   }
 
   const dataStatus = {
