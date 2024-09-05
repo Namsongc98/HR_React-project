@@ -3,7 +3,7 @@ import React, { useCallback, useMemo, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import ComboboxComponent from '../../ComboboxComponent'
 import DatePickComponent from '../../DatePickComponent'
-import { btnProp, createComboboxProps, createDateProp, getAllHoursInDay, getAllMinutesInHour } from '../../../../services/commonFuntion'
+import { btnProp, createComboboxProps, createDateProp, getAllHoursInDay, getAllMinutesInHour } from '../../../../services/commonFunction'
 import { CONST_INTERVIEWER } from '../../../../constant/constant'
 import ButtonComponent from '../../ButtonComponent'
 import { closeDialog, submitDta } from '../../../../stores/features/modal/modalSlice'
@@ -50,12 +50,13 @@ const FormScheduleBody = () => {
     ), [schedule.minute, handleChange]);
 
     const dateInterviewer = useMemo(() => createDateProp("Start date", schedule.interviewerDate, null, 'interviewerDate', handleChange), [schedule.interviewerDate, handleChange]);
+    
     const handleClickCancel = useCallback(() => {
         dispatch(closeDialog({ open: false }))
     }, [])
+
     const handleClickSubmit = useCallback(() => {
         console.log("handleClickSubmit", schedule)
-        dispatch(submitDta({ data: schedule }))
     }, [schedule.interviewerDate, schedule.interviewer, schedule.hour, schedule.minute])
 
     const btnReject = useMemo(() => btnProp("Cancel", "btn-gray", handleClickCancel), [handleClickCancel])

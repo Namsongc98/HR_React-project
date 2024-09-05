@@ -1,7 +1,8 @@
 import { Modal } from 'antd';
-import React, { Fragment, lazy, Suspense, useState } from 'react'
+import React, { lazy, Suspense, } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { closeDialog } from '../../stores/features/modal/modalSlice';
+
 
 const loadFooter = (name) => {
   return lazy(() => import(`./chilrendModal/footer-modal/${name}.jsx`));
@@ -17,30 +18,28 @@ const ModalComponent = () => {
   const dispatch = useDispatch()
   const { open, title, footer, body } = modalStore
 
-
-
-
-  const DynamicFooter = loadFooter(footer);
-  const DynamicBody = loadBody(body);
+  const DynamicFooter = footer ? loadFooter(footer) : null
+  const DynamicBody = body ? loadBody(body) : null;
   return (
     <Modal
       title={title}
       centered
       open={open}
       onCancel={() => dispatch(closeDialog({ ...modalStore, open: false }))}
-      footer={(_, { }) => (
-        <>
+      footer={(_, { OkBtn, CancelBtn }) => {
+        return DynamicFooter ?
           <Suspense fallback={<></>}>
-            {footer ? <DynamicFooter /> : <></>}
-          </Suspense>
-
-        </>
-      )}
-    >
+            <DynamicFooter />
+          </Suspense> : <></>
+      }
+      }
+    >{DynamicBody ?
       <Suspense fallback={<></>}>
-        {body ? <DynamicBody /> : <></>}
+        <DynamicBody />
       </Suspense>
-    </Modal>
+      : <></>}
+
+    </Modal >
   )
 }
 

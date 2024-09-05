@@ -2,20 +2,18 @@ import React, { useCallback, useMemo } from 'react'
 import TitleComponent from '../../../components/componentUI/TitleComponent'
 import ButtonComponent from '../../../components/common/ButtonComponent'
 import ProfileApply from '../component/ProfileApply'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { openDialog } from '../../../stores/features/modal/modalSlice'
-import { btnProp } from '../../../services/commonFuntion'
+import { btnProp } from '../../../services/commonFunction'
 
 const DetailApplicant = () => {
-  const modalStore = useSelector((state) => state.modalSlice)
   const dispatch = useDispatch()
 
   const handleClickSchedule = useCallback(() => {
-    console.log('handleClickSchedule')
     dispatch(openDialog({ open: true, title: 'Schedule Round 1', body: 'FormScheduleBody', }))
   }, [])
   const handleClickReject = useCallback(() => {
-    console.log('handleClickReject')
+    dispatch(openDialog({ open: true, title: 'Are you sure to reject this candidate?', footer: 'FooterSubmit' }))
   }, [])
 
   const btnReject = useMemo(() => btnProp("Reject", "btn-gray", handleClickReject))

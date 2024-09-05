@@ -21,12 +21,13 @@ export const createComboboxProps = (label, placeholder, value, name, listDataCom
     listDataCombobox,
     onChange
 })
-export const createDateProp = (label, value, defaultValue, name, onChange) => ({
+export const createDateProp = (label, value, defaultValue, name, onChange, placeholder) => ({
     label,
     value,
     defaultValue,
     name,
     onChange,
+    placeholder
 });
 export const createInputTextProp = (label,
     placeholder,
@@ -59,3 +60,5 @@ export const createTextareaProp = (label,
 export const btnProp = (label, styleBtn, onClick) => ({ label, styleBtn, onClick });
 
 export const modalProp = (open, title, onClick) => ({ open, title, onClick });
+export const tableProp = (columns, data, handleDoubleClickRow) => ({ columns, data, handleDoubleClickRow });
+export const lisStatusProp = (listStatus, filterData, ) => ({ listStatus, filterData });

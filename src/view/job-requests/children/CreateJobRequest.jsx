@@ -6,7 +6,7 @@ import ComboboxComponent from '../../../components/common/ComboboxComponent.jsx'
 import ButtonComponent from '../../../components/common/ButtonComponent.jsx'
 import TextareaComponent from '../../../components/common/TextareaComponent.jsx'
 import { CONSTANTS_DEPARTMENT, CONSTANTS_LEVEL } from '../constant.js'
-import { btnProp, createComboboxProps, createDateProp, createInputTextProp, createTextareaProp } from '../../../services/commonFuntion.js'
+import { btnProp, createComboboxProps, createDateProp, createInputTextProp, createTextareaProp } from '../../../services/commonFunction.js'
 const CreateJobRequest = () => {
   const [dataCreateJob, setCreateJob] = useState({
     job_title: "",

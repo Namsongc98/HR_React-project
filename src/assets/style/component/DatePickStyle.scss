@@ -21,11 +21,12 @@
 
     .ant-picker-input {
       padding-left: 12px;
-      input::placeholder{
-        color:rgba(0, 0, 0, 0.6);
+
+      input::placeholder {
+        color: rgba(0, 0, 0, 0.6);
         font-size: 16.5px;
         font-weight: 400;
-        
+
       }
     }
 
@@ -41,10 +42,63 @@
 
     .ant-picker-clear {
       padding: 10px;
+
       .anticon-close-circle {
         font-size: 24px;
       }
 
     }
   }
+}
+
+.container-date_pick-week {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .label {
+    display: block;
+    margin-bottom: 9px;
+    margin-top: 8px;
+    font-size: 17px;
+  }
+
+  .ant-picker-outlined {
+    border: 2px solid $border_color;
+    width: 100%;
+    flex-direction: row-reverse;
+    padding: 0 0 0 0;
+    border-radius: 0;
+
+    .ant-picker-input {
+      padding-left: 12px;
+
+      input::placeholder {
+        color: rgba(0, 0, 0, 0.6);
+        font-size: 16.5px;
+        font-weight: 400;
+
+      }
+    }
+
+    .ant-picker-suffix {
+      padding: 10px 15px 10px 15px;
+      background-color: white;
+    }
+
+    .ant-picker-clear {
+      padding: 10px;
+
+      .anticon-close-circle {
+        font-size: 24px;
+      }
+
+    }
+  }
+
+}
+
+.wrapper_date-week {
+  width: 250px;
 }
