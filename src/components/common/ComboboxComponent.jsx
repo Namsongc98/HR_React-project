@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { memo, useState } from 'react'
 import DropDown from '../../assets/icon/DropDown.svg'
 
 const ComboboxComponent = ({ dataCombobox }) => {
-  const { label, placeholder, value, listDataCombobox, onChange, name } = dataCombobox
+  const { label, placeholder, listDataCombobox, onChange, name } = dataCombobox
   const [openCombobox, setOpenCombobox] = useState(false)
   const [labelItem, setLabelItem] = useState()
   const handleDetail = (item) => {
@@ -45,4 +45,4 @@ const ComboboxComponent = ({ dataCombobox }) => {
   )
 }
 
-export default ComboboxComponent
+export default memo(ComboboxComponent);

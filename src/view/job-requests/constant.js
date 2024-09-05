@@ -18,17 +18,17 @@ export const LIST_COMBOBOX = [
   {
     id: 1,
     label: 'Department',
-    Value: 'department'
+    value: 'department'
   },
   {
     id: 2,
     label: 'Department1',
-    Value: 'department1'
+    value: 'department1'
   },
   {
     id: 3,
     label: 'Department2',
-    Value: 'department2'
+    value: 'department2'
   }
 ]
 

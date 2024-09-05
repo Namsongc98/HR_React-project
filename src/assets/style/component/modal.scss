@@ -1,0 +1,12 @@
+.ant-modal {
+    .ant-modal-content {
+        border-radius: 0px;
+        border: 2px solid $border_color;
+        padding: 32px;
+
+        .ant-modal-close {
+            top: 32px;
+            right: 32px;
+        }
+    }
+}

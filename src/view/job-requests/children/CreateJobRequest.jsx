@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import TitleComponent from '../../../components/componentUI/TitleComponent.jsx'
 import DatePickComponent from '../../../components/common/DatePickComponent.jsx'
 import InputComponent from '../../../components/common/InputComponent.jsx'
@@ -6,6 +6,7 @@ import ComboboxComponent from '../../../components/common/ComboboxComponent.jsx'
 import ButtonComponent from '../../../components/common/ButtonComponent.jsx'
 import TextareaComponent from '../../../components/common/TextareaComponent.jsx'
 import { CONSTANTS_DEPARTMENT, CONSTANTS_LEVEL } from '../constant.js'
+import { btnProp, createComboboxProps, createDateProp, createInputTextProp, createTextareaProp } from '../../../services/commonFunction.js'
 const CreateJobRequest = () => {
   const [dataCreateJob, setCreateJob] = useState({
     job_title: "",
@@ -18,87 +19,31 @@ const CreateJobRequest = () => {
     number_of_interviews: '',
     description: ''
   })
-  const inputJobTitle = {
-    label: "Job title",
-    type: 'text',
-    placeholder: 'Enter job title',
-    value: dataCreateJob.job_title,
-    name: 'job_title',
-    onChange: handleChange,
-  }
-  const inputSkills = {
-    label: "Skills",
-    type: 'text',
-    placeholder: 'Enter skills',
-    value: dataCreateJob.skills,
-    name: 'skills',
-    onChange: handleChange,
-  }
-  const inputVacancies = {
-    label: "Number of vacancies",
-    type: 'number',
-    placeholder: 'Enter number',
-    value: dataCreateJob.number_of_vacancies,
-    name: 'number_of_vacancies',
-    onChange: handleChange,
-  }
-  const inputInterviews = {
-    label: "Number of interviews",
-    placeholder: 'Enter number',
-    type: 'number',
-    value: dataCreateJob.number_of_interviews,
-    name: 'number_of_interviews',
-    onChange: handleChange,
-  }
-  const dateStart = {
-    label: "Start date",
-    value: dataCreateJob.start_date,
-    defaultValue: null,
-    name: 'start_date',
-    onChange: handleChange
-  }
-  const dateEnd = {
-    label: "End date",
-    value: dataCreateJob.end_date,
-    name: 'end_date',
-    defaultValue: null,
-    onChange: handleChange
-  }
-  const textareaJobDescription = {
-    label: "Job description",
-    placeholder: 'Enter job description',
-    rows: "4",
-    cols: "50",
-    value: dataCreateJob.description,
-    name: 'description',
-    onChange: handleChange,
-  }
-
-  const comboboxDepartment = {
-    label: "Department",
-    placeholder: 'Select department',
-    value: dataCreateJob.department,
-    name: 'department',
-    listDataCombobox: CONSTANTS_DEPARTMENT,
-    onChange: handleChange,
-  }
-  const comboboxLever = {
-    label: "Level",
-    placeholder: 'Select level',
-    name: 'level',
-    value: dataCreateJob.level,
-    listDataCombobox: CONSTANTS_LEVEL,
-    onChange: handleChange,
-  }
-  const btnCancel = {
-    label: "Cancel",
-    styleBtn: "btn-gray"
-  }
-  const btnSubmit = {
-    label: "Submit",
-    styleBtn: "btn-blue"
-  }
-
+  const inputJobTitle = useMemo(() => createInputTextProp("Job title", 'Enter job title', 'text', dataCreateJob.job_title, 'job_title', handleChange), [dataCreateJob.job_title, handleChange]);
+  const inputSkills = useMemo(() => createInputTextProp("Skills", 'Enter skills', 'text', dataCreateJob.skills, 'skills', handleChange), [dataCreateJob.skills, handleChange]);
+  const inputVacancies = useMemo(() => createInputTextProp("Number of vacancies", 'Enter number', 'number', dataCreateJob.number_of_vacancies, 'number_of_vacancies', handleChange), [dataCreateJob.number_of_interviews, handleChange]);
+  const inputInterviews = useMemo(() => createInputTextProp("Number of interviews", 'Enter number', 'number', dataCreateJob.number_of_interviews, 'number_of_interviews', handleChange), [dataCreateJob.number_of_interviews, handleChange]);
+  const dateStart = useMemo(() => createDateProp("Start date", dataCreateJob.start_date, null, 'start_date', handleChange), [dataCreateJob.start_date, handleChange]);
+  const dateEnd = useMemo(() => createDateProp("End date", dataCreateJob.end_date, null, 'end_date', handleChange), [dataCreateJob.start_date, handleChange]);
+  const textareaJobDescription = useMemo(() => createTextareaProp("Job description", 'Enter job description', '4', '50', 'description', dataCreateJob.description, handleChange), [dataCreateJob.description, handleChange]);
+  const comboboxDepartment = useMemo(() => createComboboxProps(
+    'Department',
+    'Select department',
+    dataCreateJob.department,
+    'interviewer',
+    CONSTANTS_DEPARTMENT,
+    handleChange
+  ), [dataCreateJob.department, handleChange]);
+  const comboboxLever = useMemo(() => createComboboxProps(
+    'Level',
+    'Select level',
+    dataCreateJob.level,
+    'level',
+    CONSTANTS_LEVEL,
+    handleChange
+  ), [dataCreateJob.level, handleChange]);
+  const btnCancel = useMemo(() => btnProp("Cancel", "btn-gray"))
+  const btnSubmit = useMemo(() => btnProp("Submit", "btn-blue"))
   function handleChange(value, prop) {
     setCreateJob((prev) => ({
       ...prev,
