@@ -2,7 +2,7 @@ import React, { useCallback, useMemo, useState } from 'react'
 import TitleComponent from '../../components/componentUI/TitleComponent'
 import DateWeekComponent from '../../components/common/DateWeekComponent'
 import { createDateProp, tableProp } from '../../services/commonFunction'
-import { COLUMN_TABLE__NEW_APPLICANTS, COLUMN_TABLE_OPENED_JOBS, dataNewApplicants, dataOpenedJobs, listNumber } from './constant'
+import { COLUMN_TABLE__NEW_APPLICANTS, COLUMN_TABLE_OPENED_JOBS, CONSTANTS_STATUS_INTERVIEWER, dataInterview, dataNewApplicants, dataOpenedJobs, listNumber } from './constant'
 import TableComponent from '../../components/common/TableComponent'
 import { Link } from 'react-router-dom'
 
@@ -69,31 +69,32 @@ export const Dashboard = () => {
           </div>
           <div className="col-xl-4">
             <div className="paper-bg p-16 scrollbar-custom wp__left-side">
-              <p className="font-xl font-6 text-black">To interview today (12)</p>
-              <div className="pt-12 pb-12">
-                <div className="wp__item-inter">
-                  <div className="row justify-space-between align-center">
-                    <div className="row">
-                      <span className="font-6">John Doe</span>
-                      <span className="text-orange ml-08">Waiting for Round 1</span>
+              <p className="font-xl font-600 text-black">To interview today (12)</p>
+              {dataInterview?.map((item) => (
+                <div className="pt-12 pb-12" key={item.id}>
+                  <div className="wp__item-inter">
+                    <div className="row justify-space-between align-center">
+                      <div className="row">
+                        <span className="font-6">{item.name_interview}</span>
+                        <span className={'ml-08 ' + CONSTANTS_STATUS_INTERVIEWER[item.status]}>{item.status}</span>
+                      </div>
+                      <span className="text-gray">{item.time}</span>
                     </div>
-                    <span className="text-gray">15:30</span>
-                  </div>
-                  <div className="">
-                    <span className="text-gray title-interview">Job title:</span>
-                    <span className="truncate">Web App Developer (PHP/C#/.Net/J...</span>
-                  </div>
-                  <div className="">
-                    <span className="text-gray title-interview">Department:</span>
-                    <span className="truncate">Tech Department</span>
-                  </div>
-                  <div className="">
-                    <span className="text-gray title-interview">Interviewer:</span>
-                    <span className="truncate">Christopher</span>
+                    <div className="">
+                      <span className="text-gray title-interview">Job title:</span>
+                      <span className="truncate">{item.job_title}</span>
+                    </div>
+                    <div className="">
+                      <span className="text-gray title-interview">Department:</span>
+                      <span className="truncate">{item.department}</span>
+                    </div>
+                    <div className="">
+                      <span className="text-gray title-interview">Interviewer:</span>
+                      <span className="truncate">{item.interviewer}</span>
+                    </div>
                   </div>
                 </div>
-
-              </div>
+              ))}
             </div>
           </div>
         </div>
