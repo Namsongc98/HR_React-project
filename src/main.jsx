@@ -7,8 +7,6 @@ import router from "./router/index.js";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router}>
       <App />
-    </RouterProvider>
   </StrictMode>
 );

@@ -1,16 +1,16 @@
 import { Table } from 'antd'
-import React from 'react'
+import React, { memo } from 'react'
 
 const TableComponent = ({ dataTable }) => {
   const { columns, data, handleDoubleClickRow } = dataTable
 
   return (
-    <div><Table columns={columns} dataSource={data} pagination={false} onRow={(record, rowIndex) => {
+    <div><Table columns={columns} dataSource={data} pagination={false} onRow={handleDoubleClickRow ? (record, rowIndex) => {
       return {
         onDoubleClick: (event) => handleDoubleClickRow(record),
       }
-    }} /></div >
+    } : null} /></div >
   )
 }
 
-export default TableComponent
+export default memo(TableComponent) 

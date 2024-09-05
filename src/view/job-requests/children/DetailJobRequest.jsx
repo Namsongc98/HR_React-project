@@ -18,7 +18,6 @@ const DetailJobRequest = () => {
   const dataStatus = {
     listStatus: STATUS_JOB_CV,
     filterData: (itemClick) => {
-      console.log(itemClick)
       const filterData = DATA_CV.filter((item) => {
         if (itemClick.status === "All")
           return true
