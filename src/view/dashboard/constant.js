@@ -122,8 +122,91 @@ export const COLUMN_TABLE_OPENED_JOBS = [
   },
   {
     key: 3,
-    dataIndex: "applicants",
+    dataIndex: "applicant",
     title: "Applicants",
-    width: 300
+    width: 200
   },
 ]
+
+export const dataInterview = [
+  {
+    id: 1,
+    name_interview: 'John Doe',
+    status: 'Waiting for Round 1',
+    time: '15:30',
+    job_title: 'Web App Developer (PHP/C#/.Net/JavaScript)',
+    department: 'Tech Department',
+    interviewer: 'Christopher'
+  },
+  {
+    id: 2,
+    name_interview: 'John Doe',
+    status: 'Waiting for Round 1',
+    time: '15:30',
+    job_title: 'Web App Developer (PHP/C#/.Net/JavaScript)',
+    department: 'Tech Department',
+    interviewer: 'Christopher'
+  },
+  {
+    id: 3,
+    name_interview: 'John Doe',
+    status: 'Waiting for Round 1',
+    time: '15:30',
+    job_title: 'Web App Developer (PHP/C#/.Net/JavaScript)',
+    department: 'Tech Department',
+    interviewer: 'Christopher'
+  },
+  {
+    id: 4,
+    name_interview: 'John Doe',
+    status: 'New',
+    time: '15:30',
+    job_title: 'Web App Developer (PHP/C#/.Net/JavaScript)',
+    department: 'Tech Department',
+    interviewer: 'Christopher'
+  },
+  {
+    id: 5,
+    name_interview: 'John Doe',
+    status: 'Waiting for Round 1',
+    time: '15:30',
+    job_title: 'Web App Developer (PHP/C#/.Net/JavaScript)',
+    department: 'Tech Department',
+    interviewer: 'Christopher'
+  },
+  {
+    id: 6,
+    name_interview: 'John Doe',
+    status: 'New',
+    time: '15:30',
+    job_title: 'Web App Developer (PHP/C#/.Net/JavaScript)',
+    department: 'Tech Department',
+    interviewer: 'Christopher'
+  },
+  {
+    id: 7,
+    name_interview: 'John Doe',
+    status: 'Waiting for Round 1',
+    time: '15:30',
+    job_title: 'Web App Developer (PHP/C#/.Net/JavaScript)',
+    department: 'Tech Department',
+    interviewer: 'Christopher'
+  },
+]
+
+export const CONSTANTS_STATUS_INTERVIEWER = {
+  New: "text-blue",
+  "Waiting for Round 1": "text-orange",
+  "Completed Round 1": "text-green",
+  Approved: "text-green",
+  "Waiting for Round 2": "text-orange",
+  "Completed Round 2": "text-green",
+  Approved: "text-green",
+  Onboarded: "text-green",
+  Rejected: "text-red",
+  "Scheduled round 1": "text-yellow",
+  "Pass Round 1": "text-green",
+  "Pass Round 2": "text-green",
+  'Scheduled round 2': 'text-yellow',
+  Fail: "text-red",
+};
