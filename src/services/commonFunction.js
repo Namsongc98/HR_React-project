@@ -59,6 +59,7 @@ export const createTextareaProp = (label,
     });
 export const btnProp = (label, styleBtn, onClick) => ({ label, styleBtn, onClick });
 
-export const modalProp = (open, title, onClick) => ({ open, title, onClick });
+export const modalProp = (open, title, onCloseModal) => ({ open, title, onCloseModal });
 export const tableProp = (columns, data, handleDoubleClickRow) => ({ columns, data, handleDoubleClickRow });
-export const lisStatusProp = (listStatus, filterData, ) => ({ listStatus, filterData });
+export const lisStatusProp = (listStatus, filterData,) => ({ listStatus, filterData });
+

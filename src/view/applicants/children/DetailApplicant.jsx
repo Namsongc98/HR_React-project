@@ -1,17 +1,29 @@
-import React, { useCallback, useMemo } from 'react'
+import React, { useCallback, useMemo, useState } from 'react'
 import TitleComponent from '../../../components/componentUI/TitleComponent'
 import ButtonComponent from '../../../components/common/ButtonComponent'
 import ProfileApply from '../component/ProfileApply'
 import { useDispatch } from 'react-redux'
 import { openDialog } from '../../../stores/features/modal/modalSlice'
-import { btnProp } from '../../../services/commonFunction'
+import { btnProp, modalProp } from '../../../services/commonFunction'
+import ModalForm from '../../../components/common/ModalForm'
+import FormScheduleBody from '../component/chilrendModal/body-modal/FormScheduleBody'
 
 const DetailApplicant = () => {
   const dispatch = useDispatch()
+  const [open, setOpen] = useState(false)
 
-  const handleClickSchedule = useCallback(() => {
-    dispatch(openDialog({ open: true, title: 'Schedule Round 1', body: 'FormScheduleBody', }))
+  const handleCloseModal = useCallback(() => {
+    setOpen(false)
   }, [])
+
+  const handleClickScheduleForm = useCallback(() => {
+    setOpen(true)
+  }, [])
+  const handleClickSchedule = useCallback(() => {
+    setOpen(true)
+  }, [])
+  const propModal = useMemo(() => modalProp(open, 'Schedule Round 1', handleCloseModal))
+  
   const handleClickReject = useCallback(() => {
     dispatch(openDialog({ open: true, title: 'Are you sure to reject this candidate?', footer: 'FooterSubmit' }))
   }, [])
@@ -20,6 +32,7 @@ const DetailApplicant = () => {
   const btnSchedule1 = useMemo(() => btnProp("Schedule Round 1", "btn-blue", handleClickSchedule))
   return (
     <div>
+      <ModalForm dataModal={propModal} ><FormScheduleBody handleClickCancel={handleCloseModal} /></ModalForm>
       <div className="row justify-space-between align-center">
         <div className="row align-center">
           <TitleComponent title="John Doe" backRouterBoolean={true} />

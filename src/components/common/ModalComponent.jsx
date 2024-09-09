@@ -7,11 +7,6 @@ import { closeDialog } from '../../stores/features/modal/modalSlice';
 const loadFooter = (name) => {
   return lazy(() => import(`./chilrendModal/footer-modal/${name}.jsx`));
 };
-const loadBody = (name) => {
-  return lazy(() => import(`./chilrendModal/body-modal/${name}.jsx`));
-};
-
-
 
 const ModalComponent = () => {
   const modalStore = useSelector((state) => state.modalSlice)
@@ -19,7 +14,6 @@ const ModalComponent = () => {
   const { open, title, footer, body } = modalStore
 
   const DynamicFooter = footer ? loadFooter(footer) : null
-  const DynamicBody = body ? loadBody(body) : null;
   return (
     <Modal
       title={title}
@@ -33,12 +27,7 @@ const ModalComponent = () => {
           </Suspense> : <></>
       }
       }
-    >{DynamicBody ?
-      <Suspense fallback={<></>}>
-        <DynamicBody />
-      </Suspense>
-      : <></>}
-
+    >
     </Modal >
   )
 }
